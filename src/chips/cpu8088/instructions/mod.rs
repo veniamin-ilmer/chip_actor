@@ -1,0 +1,9 @@
+pub mod lookup;
+pub mod bcd;
+pub mod flag;
+pub mod jump;
+pub mod logic;
+pub mod math;
+pub mod set;
+pub mod shift;
+pub mod string;
