@@ -10,7 +10,7 @@ use definitions::register::Registers;
 use definitions::flag::Flags;
 use definitions::operand;
 
-use log::trace;
+use log::{trace, debug};
 
 pub(crate) struct CPU {
   pub(crate) board: Actor<Board>,
@@ -45,7 +45,7 @@ impl CPU {
     let current_address = memory.get_current_address();
 
     Some(CPU {
-      board: board.clone(),
+      board,
       memory,
       current_address,
       regs: Default::default(),
@@ -69,9 +69,9 @@ impl CPU {
   }
 
   pub(crate) fn print_registers(&self) {
-    trace!("AX={:04X}  BX={:04X}  CX={:04X}  DX={:04X}  SP={:04X}  BP={:04X}  SI={:04X}  DI={:04X}",
+    debug!("AX={:04X}  BX={:04X}  CX={:04X}  DX={:04X}  SP={:04X}  BP={:04X}  SI={:04X}  DI={:04X}",
              self.regs.ax, self.regs.bx, self.regs.cx, self.regs.dx, self.regs.sp, self.regs.bp, self.regs.si, self.regs.di);
-    trace!("DS={:04X}  ES={:04X}  SS={:04X}  CS={:04X}  IP={:04X} C={} P={} A={} Z={} S={} O={}",
+    debug!("DS={:04X}  ES={:04X}  SS={:04X}  CS={:04X}  IP={:04X} C={} P={} A={} Z={} S={} O={}",
              self.memory.ds, self.memory.es, self.memory.ss, self.memory.cs, self.memory.ip, self.flags.carry, self.flags.parity, self.flags.adjust, self.flags.zero, self.flags.sign, self.flags.overflow);
   }
 

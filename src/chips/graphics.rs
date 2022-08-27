@@ -114,7 +114,7 @@ impl Graphics {
     debug!("{:?}", self.color_options);
   }
   
-  pub(crate) fn choose_register(&mut self, register: u8) {
+  pub(crate) fn choose_register(&mut self, cx:CX![], register: u8) {
     self.current_register = match register {
       0x00 => Register::HorizontalTotalCharacter,
       0x01 => Register::HorizontalDisplayedCharactersPerLine,
@@ -139,7 +139,7 @@ impl Graphics {
     debug!("Referencing {:?}", self.current_register);
   }
   
-  pub(crate) fn set_register_data(&mut self, register: u8) {
+  pub(crate) fn set_register_data(&mut self, cx:CX![], register: u8) {
     match self.current_register {
       Register::HorizontalTotalCharacter => self.horizontal_total_character = register,
       Register::HorizontalDisplayedCharactersPerLine => self.horizontal_displayed_characters_per_line = register,

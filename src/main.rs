@@ -13,6 +13,7 @@ type Timer = chips::pit::PIT;
 type PPI = chips::ppi::PPI;
 type Graphics = chips::graphics::Graphics;
 type MemoryController = chips::dma::DMA;
+type PIC = chips::pic::PIC;
 
 use simplelog::*;
 
@@ -44,12 +45,14 @@ fn main() {
   let ppi = actor!(stakker, PPI::init(), ret_nop!());
   let graphics = actor!(stakker, Graphics::init(), ret_nop!());
   let memory_controller = actor!(stakker, MemoryController::init(), ret_nop!());
+  let pic = actor!(stakker, PIC::init(board.clone()), ret_nop!());
   call!([board], Board::init(
     cpu.clone(),
     timer.clone(),
     ppi.clone(),
     graphics.clone(),
-    memory_controller.clone()
+    memory_controller.clone(),
+    pic.clone()
   ));
   
   call!([cpu], single_run());
