@@ -241,25 +241,16 @@ impl PIC {
     };
     debug!("Got a Operation Control Word 3 to read: {:?}", self.next_get);
   }
-  /*
-  pub(crate) fn process_msg(&mut self, msg: PICMsg) {
-    match msg {
-      //IRQ0
-      PICMsg::PIT{select_counter} => {
-        if select_counter == 0 {
-          if self.irq0.enabled && !self.irq0.interrupted_cpu { //Only PIT channel 0 can interrupt on a x86. Unclear about other machines.
-            let interrupt = self.vector_offset + 0;
-            debug!("PIC IRQ0 triggered! This maps to INT {}", interrupt);
-            //Signal the CPU.
-            call!(self.board.
-            self.irq0.interrupted_cpu = true;
-            self.irq0.interrupt_requested = false;
-          } else {
-            self.irq0.interrupt_requested = true;
-          }
-        }
-      },
+
+  pub(crate) fn interrupt_irq0(&mut self, _: CX![]) {
+    if self.irq0.enabled && !self.irq0.interrupted_cpu { //Only PIT channel 0 can interrupt on a x86. Unclear about other machines.
+      let interrupt_index = self.vector_offset + 0;
+      debug!("PIC IRQ0 triggered! This maps to INT {}", interrupt_index);
+      call!([self.board], pic_interrupt(interrupt_index));
+      self.irq0.interrupted_cpu = true;
+      self.irq0.interrupt_requested = false;
+    } else {
+      self.irq0.interrupt_requested = true;
     }
   }
-  */
 }
