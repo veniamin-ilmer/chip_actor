@@ -106,5 +106,8 @@ impl CPU {
       operand::Word::Imm(_) => panic!("Attemped write to imm."),
     };
   }
-}
 
+  pub(crate) fn interrupt(&mut self, _: CX![], int_index: u8) {
+    instructions::jump::hardware_int(self, int_index as u8);
+  }
+}
