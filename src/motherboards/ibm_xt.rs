@@ -31,11 +31,13 @@ impl IBM_XT {
   }
   
   pub(crate) fn timer_interrupt(&self, _: CX![], select_counter: u8) {
-    println!("Timer interrupt goes here for IRQ {}.", select_counter);
+    if select_counter == 0 {  //Only IRQ 0 is able to signal the PIC.
+      call!([self.pic], interrupt_irq0());
+    }
   }
   
-  pub(crate) fn pic_interrupt(&self, _: CX![], interrupt: u8) {
-    println!("Pic interrupt goes here for INT {}.", interrupt);
+  pub(crate) fn pic_interrupt(&self, _: CX![], int_index: u8) {
+    call!([self.cpu], interrupt(int_index));
   }
   
   pub(crate) fn out_byte(&self, _: CX![], port: u16, value: u8) {
@@ -66,6 +68,7 @@ impl IBM_XT {
       0x63 => call!([self.ppi], set_configuration(value)),
       0x83 => debug!("083 - High order 4 bits of DMA channel 1 address {:X}", value),
       0xA0 => call!([self.ppi], set_nmi(value)),
+      0x210 => debug!("OUT Expansion Card Port - {:X}", value),
       0x3B4 => call!([self.graphics], choose_register(value)),
       0x3B5 => call!([self.graphics], set_register_data(value)),
       0x3B8 => call!([self.graphics], set_mode_bw(value)),
@@ -100,12 +103,12 @@ impl IBM_XT {
       0x60 => call!([self.ppi], read_port_a(ret)),
       0x61 => call!([self.ppi], read_port_b(ret)),
       0x62 => call!([self.ppi], read_port_c(ret)),
+      0x210 => {debug!("IN Expansion Card Port"); ret!([ret], 0);},
       _ => panic!("In port {:X}", port),
     }
   }
   pub(crate) fn in_word(&self, _: CX![], port: u16, ret: Ret<u16>) {
     ret!([ret], 0);
     panic!("16 bit In port {:X}", port);
-  }
-  
+  } 
 }
