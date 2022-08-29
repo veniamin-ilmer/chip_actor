@@ -33,6 +33,8 @@ I converted all chips to run on an Actor Model. They are now in sync and running
 
 I intend to make this emulator into a more general "chip emulator", which could run any system. 8085, z80, etc, along with all peripheral chips. Perhaps I could eventually make a Frankenstein machine composed of chips stitched in from completely different origins.
 
+I also intend this project to be used as a reference. The chip functionality should be fully explained. Perhaps make this into a library for anyone to be able to use any chip.
+
 ## Latest Progress
 
 ### 2022-08-29
