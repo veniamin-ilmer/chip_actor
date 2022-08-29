@@ -2,16 +2,16 @@
 
 ## Fully emulated chips
 
-Intel 8088 - CPU
-Intel 8259 - Programmable Interrupt Controller (PIC)
-Intel 8253 - Programmable Interval Timer (PIT)
+* Intel 8088 - CPU
+* Intel 8259 - Programmable Interrupt Controller (PIC)
+* Intel 8253 - Programmable Interval Timer (PIT)
 
 ## Partially emulated chips
 
-Intel 8237 / AMD 1980 - Direct Memory Access (DMA)
-Intel 8255 - Peripheral  Programmable Peripheral Interface (PPI)
-Motorola 6845 - CRT Controller
-IBM XT Hard Disk Controller
+* Intel 8237 / AMD 1980 - Direct Memory Access (DMA)
+* Intel 8255 - Peripheral  Programmable Peripheral Interface (PPI)
+* Motorola 6845 - CRT Controller
+* IBM XT Hard Disk Controller
 
 ## About
 
@@ -32,3 +32,11 @@ I rewrote the emulator to run single threaded with cooperative multitasking. Doi
 I converted all chips to run on an Actor Model. They are now in sync and running fast and efficiently, with zero message blocking.
 
 I intend to make this emulator into a more general "chip emulator", which could run any system. 8085, z80, etc, along with all peripheral chips. Perhaps I could eventually make a Frankenstein machine composed of chips stitched in from completely different origins.
+
+## Latest Progress
+
+### 2022-08-29
+
+After switching to an Actor messaging model, the BIOS now gets through timing the PIT successfully. It consistently outputs "064 KB OK" into the teletype output.
+
+Next steps: Expand on the PPI. Get it to signal to the BIOS that a floppy drive exists. Figure out how to make the BIOS know that more than 64 KB of memory is available... See what other fun dip switches the PPI has to offer.
