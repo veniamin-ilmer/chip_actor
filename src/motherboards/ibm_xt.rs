@@ -9,6 +9,7 @@ pub(crate) struct IBM_XT {
   graphics: Actor<crate::Graphics>,
   dma: Actor<crate::MemoryController>,
   pic: Actor<crate::PIC>,
+  fixed_disk: Actor<crate::FixedDisk>
 }
 
 impl IBM_XT {
@@ -19,6 +20,7 @@ impl IBM_XT {
       graphics: Actor<crate::Graphics>,
       dma: Actor<crate::MemoryController>,
       pic: Actor<crate::PIC>,
+      fixed_disk: Actor<crate::FixedDisk>
     ) -> Option<Self> {
     Some(Self {
       cpu,
@@ -26,7 +28,8 @@ impl IBM_XT {
       ppi,
       graphics,
       dma,
-      pic
+      pic,
+      fixed_disk,
     })
   }
   
@@ -34,6 +37,10 @@ impl IBM_XT {
     if select_counter == 0 {  //Only IRQ 0 is able to signal the PIC.
       call!([self.pic], interrupt_irq0());
     }
+  }
+  
+  pub(crate) fn fixed_disk_interrupt(&self, _: CX![]) {
+    call!([self.pic], interrupt_irq5());
   }
   
   pub(crate) fn pic_interrupt(&self, _: CX![], int_index: u8) {
@@ -69,6 +76,13 @@ impl IBM_XT {
       0x83 => debug!("083 - High order 4 bits of DMA channel 1 address {:X}", value),
       0xA0 => call!([self.ppi], set_nmi(value)),
       0x210 => debug!("OUT Expansion Card Port - {:X}", value),
+      0x320 => call!([self.fixed_disk], send_command(value)),
+      0x321 => call!([self.fixed_disk], reset(value)),
+      0x322 => call!([self.fixed_disk], pulse(value)),
+      0x323 => call!([self.fixed_disk], set_dma_and_interrupt(value)),
+      0x327 => debug!("OUT Fixed disk port 0x327. Value: {:X}. Undocumented..", value),
+      0x32B => debug!("OUT Fixed disk port 0x32B. Value: {:X}. Undocumented..", value),
+      0x32F => debug!("OUT Fixed disk port 0x32F. Value: {:X}. Undocumented..", value),
       0x3B4 => call!([self.graphics], choose_register(value)),
       0x3B5 => call!([self.graphics], set_register_data(value)),
       0x3B8 => call!([self.graphics], set_mode_bw(value)),
@@ -104,6 +118,8 @@ impl IBM_XT {
       0x61 => call!([self.ppi], read_port_b(ret)),
       0x62 => call!([self.ppi], read_port_c(ret)),
       0x210 => {debug!("IN Expansion Card Port"); ret!([ret], 0);},
+      0x320 => call!([self.fixed_disk], read_status(ret)),
+      0x321 => call!([self.fixed_disk], status_register(ret)),
       _ => panic!("In port {:X}", port),
     }
   }

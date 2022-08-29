@@ -414,7 +414,7 @@ pub(crate) fn run_next_instruction(cpu: &mut super::super::CPU, cpu_actor: &Acto
     0xD1 | 0xD3 => {
       let op1 = cpu.memory.next_byte();
       let set_op = operand::Word::extended(&mut cpu.memory, &cpu.regs, op1);
-      let get_op = if op0 == 0xD0 {
+      let get_op = if op0 == 0xD1 {
         operand::Byte::Imm(1)
       } else {
         operand::Byte::Reg(register::Byte::CL)

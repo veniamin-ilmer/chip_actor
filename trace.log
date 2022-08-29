@@ -1,0 +1,292 @@
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=0040  BX=1000  CX=0100  DX=0321  SP=00F0  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0181 C=false P=true A=false Z=false S=false O=false
+14:46:51 [DEBUG] (1) chip_actor::chips::fixed_disk: Reset value: 64
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::lookup: [src\chips\cpu8088\instructions\lookup.rs:494] C0181: JMP +0
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=0040  BX=1000  CX=0100  DX=0321  SP=00F0  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0183 C=false P=true A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::lookup: [src\chips\cpu8088\instructions\lookup.rs:494] C0183: JMP +0
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=0040  BX=1000  CX=0100  DX=0321  SP=00F0  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0185 C=false P=true A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::lookup: [src\chips\cpu8088\instructions\lookup.rs:494] C0185: JMP +0
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=0040  BX=1000  CX=0100  DX=0321  SP=00F0  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0187 C=false P=true A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:97] C0187: IN AL, DX
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=0040  BX=1000  CX=0100  DX=0321  SP=00F0  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0188 C=false P=true A=false Z=false S=false O=false
+14:46:51 [DEBUG] (1) chip_actor::chips::fixed_disk: Get Status
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::logic: [src\chips\cpu8088\instructions\logic.rs:8] C0188: AND AL, 3F
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=0000  BX=1000  CX=0100  DX=0321  SP=00F0  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=018A C=false P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::lookup: [src\chips\cpu8088\instructions\lookup.rs:131] C018A: JZ +3
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=0000  BX=1000  CX=0100  DX=0321  SP=00F0  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=018F C=false P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::flag: [src\chips\cpu8088\instructions\flag.rs:77] C018F: POP DX
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=0000  BX=1000  CX=0100  DX=C100  SP=00F2  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0190 C=false P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::flag: [src\chips\cpu8088\instructions\flag.rs:77] C0190: POP CX
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=0000  BX=1000  CX=0025  DX=C100  SP=00F4  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0191 C=false P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::jump: [src\chips\cpu8088\instructions\jump.rs:119] C0191: RET
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=0000  BX=1000  CX=0025  DX=C100  SP=00F6  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=008E C=false P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::lookup: [src\chips\cpu8088\instructions\lookup.rs:126] C008E: JNB +5
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=0000  BX=1000  CX=0025  DX=C100  SP=00F6  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0095 C=false P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:19] C0095: MOV CX, 1
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=0000  BX=1000  CX=0001  DX=C100  SP=00F6  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0098 C=false P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:19] C0098: MOV DX, 80
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=0000  BX=1000  CX=0001  DX=0080  SP=00F6  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=009B C=false P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:19] C009B: MOV AX, 1200
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00F6  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=009E C=false P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::jump: [src\chips\cpu8088\instructions\jump.rs:168] C009E: INT 13
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088::instructions::jump: Interrupt 13
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00F0  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=00A0 C=false P=true A=false Z=true S=false O=false
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00F0  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0251 C=false P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:84] C0251: CMP DL, 80
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00F0  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0254 C=false P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::lookup: [src\chips\cpu8088\instructions\lookup.rs:126] C0254: JNB +5
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00F0  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=025B C=false P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::flag: [src\chips\cpu8088\instructions\flag.rs:31] C025B: STI
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00F0  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=025C C=false P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::logic: [src\chips\cpu8088\instructions\logic.rs:23] C025C: OR AH, AH
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00F0  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=025E C=false P=true A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::lookup: [src\chips\cpu8088\instructions\lookup.rs:136] C025E: JNZ +9
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00F0  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0269 C=false P=true A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:84] C0269: CMP AH, 8
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00F0  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=026C C=false P=true A=true Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::lookup: [src\chips\cpu8088\instructions\lookup.rs:136] C026C: JNZ +3
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00F0  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0271 C=false P=true A=true Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::flag: [src\chips\cpu8088\instructions\flag.rs:53] C0271: PUSH BP
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00EE  BP=0000  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0272 C=false P=true A=true Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:19] C0272: MOV BP, SP
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00EE  BP=00EE  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0274 C=false P=true A=true Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:76] C0274: SUB SP, 8
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00E6  BP=00EE  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0277 C=false P=false A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::flag: [src\chips\cpu8088\instructions\flag.rs:53] C0277: PUSH BX
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00E4  BP=00EE  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0278 C=false P=false A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::flag: [src\chips\cpu8088\instructions\flag.rs:53] C0278: PUSH CX
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00E2  BP=00EE  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0279 C=false P=false A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::flag: [src\chips\cpu8088\instructions\flag.rs:53] C0279: PUSH DX
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00E0  BP=00EE  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=027A C=false P=false A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::flag: [src\chips\cpu8088\instructions\flag.rs:53] C027A: PUSH DS
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00DE  BP=00EE  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=027B C=false P=false A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::flag: [src\chips\cpu8088\instructions\flag.rs:53] C027B: PUSH ES
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00DC  BP=00EE  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=027C C=false P=false A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::flag: [src\chips\cpu8088\instructions\flag.rs:53] C027C: PUSH SI
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00DA  BP=00EE  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=027D C=false P=false A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::flag: [src\chips\cpu8088\instructions\flag.rs:53] C027D: PUSH DI
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00D8  BP=00EE  SI=FF23  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=027E C=false P=false A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:19] C027E: MOV SI, 40
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00D8  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0281 C=false P=false A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:19] C0281: MOV DS, SI
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00D8  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0283 C=false P=false A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::jump: [src\chips\cpu8088\instructions\jump.rs:73] C0283: CALL +4A
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=02D0 C=false P=false A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:84] C02D0: CMP AH, 1
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=02D3 C=false P=true A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::lookup: [src\chips\cpu8088\instructions\lookup.rs:131] C02D3: JZ +72
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0080  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=02D5 C=false P=true A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:69] C02D5: SUB DL, 80
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=02D8 C=false P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:84] C02D8: CMP DL, 8
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=02DB C=true P=false A=true Z=false S=true O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::lookup: [src\chips\cpu8088\instructions\lookup.rs:126] C02DB: JNB +49
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=02DD C=true P=false A=true Z=false S=true O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:13] C02DD: MOV [74], 0
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0001  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=02E2 C=true P=false A=true Z=false S=true O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:24] C02E2: DEC CL
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0000  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=02E4 C=true P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:13] C02E4: MOV [BP+F8], 0
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0000  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=02E8 C=true P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:13] C02E8: MOV [BP+FA], CL
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0000  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=02EB C=true P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:13] C02EB: MOV [BP+FB], CH
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0000  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=02EE C=true P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:13] C02EE: MOV [BP+FC], AL
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0000  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=02F1 C=true P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:13] C02F1: MOV AL, [76]
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0000  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=02F4 C=true P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:13] C02F4: MOV [BP+FD], AL
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0000  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=02F7 C=true P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:13] C02F7: MOV CH, DL
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0000  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=02F9 C=true P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::logic: [src\chips\cpu8088\instructions\logic.rs:23] C02F9: OR DL, 1
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0000  DX=0001  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=02FC C=false P=false A=false Z=false S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:24] C02FC: DEC DL
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0000  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=02FE C=false P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::shift: [src\chips\cpu8088\instructions\shift.rs:89] C02FE: SHL DL, 1
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0000  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:51 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0300 C=false P=true A=false Z=true S=false O=false
+14:46:51 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:13] C0300: MOV [77], DL
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0000  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0304 C=false P=true A=false Z=true S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:13] C0304: MOV DL, CH
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0000  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0306 C=false P=true A=false Z=true S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::logic: [src\chips\cpu8088\instructions\logic.rs:8] C0306: AND DL, 1
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0000  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0309 C=false P=true A=false Z=true S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:13] C0309: MOV CL, 5
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0005  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=030B C=false P=true A=false Z=true S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::shift: [src\chips\cpu8088\instructions\shift.rs:89] C030B: SHL DL, CL
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0005  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=030D C=false P=true A=false Z=true S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::logic: [src\chips\cpu8088\instructions\logic.rs:23] C030D: OR DL, DH
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0005  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=030F C=false P=true A=false Z=true S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:13] C030F: MOV [BP+F9], DL
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0005  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0312 C=false P=true A=false Z=true S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:19] C0312: MOV CX, AX
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=1200  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0314 C=false P=true A=false Z=true S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:13] C0314: MOV CL, CH
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=1212  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0316 C=false P=true A=false Z=true S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::logic: [src\chips\cpu8088\instructions\logic.rs:38] C0316: XOR CH, CH
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0012  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0318 C=false P=true A=false Z=true S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::shift: [src\chips\cpu8088\instructions\shift.rs:96] C0318: SHL CX, 1
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0024  DX=0000  SP=00D6  BP=00EE  SI=0040  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=031A C=false P=true A=false Z=true S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:19] C031A: MOV SI, CX
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0024  DX=0000  SP=00D6  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=031C C=false P=true A=false Z=true S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:90] C031C: CMP CX, 2A
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0024  DX=0000  SP=00D6  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=031F C=true P=true A=true Z=false S=true O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::lookup: [src\chips\cpu8088\instructions\lookup.rs:126] C031F: JNB +5
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0024  DX=0000  SP=00D6  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0321 C=true P=true A=true Z=false S=true O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::lookup: [src\chips\cpu8088\instructions\lookup.rs:76] C0321: CS:
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0024  DX=0000  SP=00D6  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0322 C=true P=true A=true Z=false S=true O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::jump: [src\chips\cpu8088\instructions\jump.rs:14] C0322: JMP [SI+2A6]
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0024  DX=0000  SP=00D6  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=053F C=true P=true A=true Z=false S=true O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:13] C053F: MOV [BP+F8], E0
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0024  DX=0000  SP=00D6  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0543 C=true P=true A=true Z=false S=true O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::lookup: [src\chips\cpu8088\instructions\lookup.rs:494] C0543: JMP +10
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0024  DX=0000  SP=00D6  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=054F C=true P=true A=true Z=false S=true O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:13] C054F: MOV AL, 2
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1202  BX=1000  CX=0024  DX=0000  SP=00D6  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0551 C=true P=true A=true Z=false S=true O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::jump: [src\chips\cpu8088\instructions\jump.rs:73] C0551: CALL +28
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1202  BX=1000  CX=0024  DX=0000  SP=00D4  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=057C C=true P=true A=true Z=false S=true O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::jump: [src\chips\cpu8088\instructions\jump.rs:73] C057C: CALL +1EE
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1202  BX=1000  CX=0024  DX=0000  SP=00D2  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=076D C=true P=true A=true Z=false S=true O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:19] C076D: MOV DX, 320
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1202  BX=1000  CX=0024  DX=0320  SP=00D2  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0770 C=true P=true A=true Z=false S=true O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:39] C0770: ADD DL, [77]
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1202  BX=1000  CX=0024  DX=0320  SP=00D2  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0774 C=false P=false A=false Z=false S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::jump: [src\chips\cpu8088\instructions\jump.rs:119] C0774: RET
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1202  BX=1000  CX=0024  DX=0320  SP=00D4  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=057F C=false P=false A=false Z=false S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:16] C057F: INC DX
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1202  BX=1000  CX=0024  DX=0321  SP=00D4  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0580 C=false P=true A=false Z=false S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:16] C0580: INC DX
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1202  BX=1000  CX=0024  DX=0322  SP=00D4  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0581 C=false P=true A=false Z=false S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:140] C0581: OUT DX, AL
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1202  BX=1000  CX=0024  DX=0322  SP=00D4  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0582 C=false P=true A=false Z=false S=false O=false
+14:46:52 [DEBUG] (1) chip_actor::chips::fixed_disk: Pulse value: 2
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:16] C0582: INC DX
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1202  BX=1000  CX=0024  DX=0323  SP=00D4  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0583 C=false P=false A=false Z=false S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:76] C0583: SUB CX, CX
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1202  BX=1000  CX=0000  DX=0323  SP=00D4  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0585 C=false P=true A=false Z=true S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:140] C0585: OUT DX, AL
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1202  BX=1000  CX=0000  DX=0323  SP=00D4  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0586 C=false P=true A=false Z=true S=false O=false
+14:46:52 [DEBUG] (1) chip_actor::chips::fixed_disk: DMA enabled: false, Interrupt enabled: true
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:31] C0586: DEC DX
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1202  BX=1000  CX=0000  DX=0322  SP=00D4  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0587 C=false P=true A=false Z=false S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:31] C0587: DEC DX
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1202  BX=1000  CX=0000  DX=0321  SP=00D4  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0588 C=false P=true A=false Z=false S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:97] C0588: IN AL, DX
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1202  BX=1000  CX=0000  DX=0321  SP=00D4  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0589 C=false P=true A=false Z=false S=false O=false
+14:46:52 [DEBUG] (1) chip_actor::chips::fixed_disk: Get Status
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::logic: [src\chips\cpu8088\instructions\logic.rs:8] C0589: AND AL, F
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=120D  BX=1000  CX=0000  DX=0321  SP=00D4  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=058B C=false P=false A=false Z=false S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:84] C058B: CMP AL, D
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=120D  BX=1000  CX=0000  DX=0321  SP=00D4  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=058D C=false P=true A=false Z=true S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::lookup: [src\chips\cpu8088\instructions\lookup.rs:131] C058D: JZ +9
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=120D  BX=1000  CX=0000  DX=0321  SP=00D4  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=0598 C=false P=true A=false Z=true S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:19] C0598: MOV CX, 6
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=120D  BX=1000  CX=0006  DX=0321  SP=00D4  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=059B C=false P=true A=false Z=true S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:31] C059B: DEC DX
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=120D  BX=1000  CX=0006  DX=0320  SP=00D4  BP=00EE  SI=0024  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=059C C=false P=false A=false Z=false S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:19] C059C: MOV SI, BP
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=120D  BX=1000  CX=0006  DX=0320  SP=00D4  BP=00EE  SI=00EE  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=059E C=false P=false A=false Z=false S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::math: [src\chips\cpu8088\instructions\math.rs:76] C059E: SUB BP, 8
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=120D  BX=1000  CX=0006  DX=0320  SP=00D4  BP=00E6  SI=00EE  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=05A1 C=false P=false A=false Z=false S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::flag: [src\chips\cpu8088\instructions\flag.rs:26] C05A1: CLI
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=120D  BX=1000  CX=0006  DX=0320  SP=00D4  BP=00E6  SI=00EE  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=05A2 C=false P=false A=false Z=false S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:13] C05A2: MOV AL, [BP+0]
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0006  DX=0320  SP=00D4  BP=00E6  SI=00EE  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=05A5 C=false P=false A=false Z=false S=false O=false
+14:46:52 [TRACE] (1) chip_actor::chips::cpu8088::instructions::set: [src\chips\cpu8088\instructions\set.rs:140] C05A5: OUT DX, AL
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: AX=1200  BX=1000  CX=0006  DX=0320  SP=00D4  BP=00E6  SI=00EE  DI=0040
+14:46:52 [DEBUG] (1) chip_actor::chips::cpu8088: DS=0040  ES=0040  SS=0030  CS=C000  IP=05A6 C=false P=false A=false Z=false S=false O=false

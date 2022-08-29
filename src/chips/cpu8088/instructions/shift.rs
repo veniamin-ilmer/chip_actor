@@ -21,7 +21,7 @@ pub(crate) fn shr_word(cpu: &mut CPU, set_op: operand::Word, get_op: operand::By
 }
 
 pub(crate) fn sar_byte(cpu: &mut CPU, set_op: operand::Byte, get_op: operand::Byte) -> usize {
-  if log_enabled!(Trace) { trace!("{:05X}: SHR {}, {}", cpu.current_address, set_op.label(), get_op.label()); }
+  if log_enabled!(Trace) { trace!("{:05X}: SAR {}, {}", cpu.current_address, set_op.label(), get_op.label()); }
   let (set_val, get_val) = (cpu.read_byte(&set_op), cpu.read_byte(&get_op));
   let mut result = cpu.flags.shr_ror_rcr_byte(set_val, get_val);
   if (set_val as i8) < 0 {
@@ -31,7 +31,7 @@ pub(crate) fn sar_byte(cpu: &mut CPU, set_op: operand::Byte, get_op: operand::By
   set_op.get_rotate_cycles(&get_op, get_val)
 }
 pub(crate) fn sar_word(cpu: &mut CPU, set_op: operand::Word, get_op: operand::Byte) -> usize {
-  if log_enabled!(Trace) { trace!("{:05X}: SHR {}, {}", cpu.current_address, set_op.label(), get_op.label()); }
+  if log_enabled!(Trace) { trace!("{:05X}: SAR {}, {}", cpu.current_address, set_op.label(), get_op.label()); }
   let (set_val, get_val) = (cpu.read_word(&set_op), cpu.read_byte(&get_op));
   let mut result = cpu.flags.shr_ror_rcr_word(set_val, get_val);
   if (set_val as i8) < 0 {

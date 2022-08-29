@@ -18,11 +18,12 @@ pub(crate) struct CPU {
   pub(crate) regs: Registers,
   pub(crate) flags: Flags,
   pub(crate) current_address: usize,
+  pub(crate) logging: bool,
 }
 
 impl CPU {
   
-  pub(crate) fn init(_: CX![], board: Actor<Board>, mut bios_rom: Vec<u8>, mut video_rom: Vec<u8>) -> Option<Self> {
+  pub(crate) fn init(_: CX![], board: Actor<Board>, mut bios_rom: Vec<u8>, mut video_rom: Vec<u8>, mut disk_rom: Vec<u8>) -> Option<Self> {
     let mut memory = Memory {
       cs: 0xF000,
       ds: 0,
@@ -35,6 +36,8 @@ impl CPU {
     };
     
     memory.ram.append(&mut video_rom);
+    memory.ram.resize(0xC_8000, 0); //Fill up the remainder of space up to the bios.
+    memory.ram.append(&mut disk_rom);
     memory.ram.resize(0xF_0000, 0); //Fill up the remainder of space up to the bios.
     
     if bios_rom.len() != 0x1_0000 {
@@ -50,6 +53,7 @@ impl CPU {
       current_address,
       regs: Default::default(),
       flags: Default::default(),
+      logging: false,
     })
   }
 
@@ -58,6 +62,7 @@ impl CPU {
     let cycles = instructions::lookup::run_next_instruction(self, cx.this());
     let duration = std::time::Duration::from_nanos(cycles as u64 * 210); //4.77 Mhz = 210 nanosecond delay.
     let instant = cx.now() + duration;
+    //self.print_registers();
     at!(instant, [cx], single_run());
   }
 

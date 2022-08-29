@@ -4,3 +4,4 @@ pub mod ppi;
 pub mod graphics;
 pub mod dma;
 pub mod pic;
+pub mod fixed_disk;

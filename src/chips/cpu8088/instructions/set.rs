@@ -117,6 +117,10 @@ pub(crate) fn in_ax_word(cpu: &mut CPU, cpu_actor: &Actor<CPU>) -> usize {
 }
 
 
+use simplelog::*;
+use std::io::prelude::*;
+use std::fs::File;
+
 pub(crate) fn out_al_byte(cpu: &mut CPU, port: operand::Byte) -> usize {
   if log_enabled!(Trace) { trace!("{:05X}: OUT {}, AL", cpu.current_address, port.label()); }
   let port_val = cpu.read_byte(&port) as u16;
@@ -134,15 +138,26 @@ pub(crate) fn out_ax_byte(cpu: &mut CPU, port: operand::Byte) -> usize {
 
 pub(crate) fn out_al_word(cpu: &mut CPU) -> usize {
   if log_enabled!(Trace) { trace!("{:05X}: OUT DX, AL", cpu.current_address); }
-  let port = cpu.regs.get_word(&register::Word::DX);
+  let port_val = cpu.regs.get_word(&register::Word::DX);
   let value = cpu.regs.get_byte(&register::Byte::AL);
-  call!([cpu.board], out_byte(port, value));
+  call!([cpu.board], out_byte(port_val, value));
+
+/*
+  if !cpu.logging && port_val == 0x321 {
+    
+    CombinedLogger::init(vec![
+        TermLogger::new(LevelFilter::Debug, Config::default(), TerminalMode::Mixed, ColorChoice::Auto),
+        WriteLogger::new(LevelFilter::Trace, Config::default(), File::create("trace.log").unwrap()),
+    ]).unwrap();
+    cpu.logging = true;
+  }*/
+
   12
 }
 pub(crate) fn out_ax_word(cpu: &mut CPU) -> usize {
   if log_enabled!(Trace) { trace!("{:05X}: OUT DX, AX", cpu.current_address); }
-  let port = cpu.regs.get_word(&register::Word::DX);
+  let port_val = cpu.regs.get_word(&register::Word::DX);
   let value = cpu.regs.get_word(&register::Word::AX);
-  call!([cpu.board], out_word(port, value));
+  call!([cpu.board], out_word(port_val, value));
   12
 }

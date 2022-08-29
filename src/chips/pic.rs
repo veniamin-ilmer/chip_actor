@@ -44,8 +44,8 @@ pub(crate) struct PIC {
   next_set_index: u8,
   next_get: RegisterType,
   vector_offset: u8,
-  irq0: IRQ,
-  irq1: IRQ,
+  irq0: IRQ,  //For x86, this connects to timer
+  irq1: IRQ,  //For x86, this connects to keyboard
   irq2: IRQ,
   irq3: IRQ,
   irq4: IRQ,
@@ -245,12 +245,25 @@ impl PIC {
   pub(crate) fn interrupt_irq0(&mut self, _: CX![]) {
     if self.irq0.enabled && !self.irq0.interrupted_cpu { //Only PIT channel 0 can interrupt on a x86. Unclear about other machines.
       let interrupt_index = self.vector_offset + 0;
-      debug!("PIC IRQ0 triggered! This maps to INT {}", interrupt_index);
+      debug!("PIC IRQ0 triggered! This maps to INT {:X}", interrupt_index);
       call!([self.board], pic_interrupt(interrupt_index));
       self.irq0.interrupted_cpu = true;
       self.irq0.interrupt_requested = false;
     } else {
       self.irq0.interrupt_requested = true;
+    }
+  }
+  
+    pub(crate) fn interrupt_irq5(&mut self, _: CX![]) {
+      debug!("IRQ5 called..");
+    if self.irq5.enabled && !self.irq5.interrupted_cpu {
+      let interrupt_index = self.vector_offset + 5;
+      debug!("PIC IRQ5 triggered! This maps to INT {:X}", interrupt_index);
+      call!([self.board], pic_interrupt(interrupt_index));
+      self.irq5.interrupted_cpu = true;
+      self.irq5.interrupt_requested = false;
+    } else {
+      self.irq5.interrupt_requested = true;
     }
   }
 }

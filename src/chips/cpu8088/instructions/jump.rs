@@ -134,6 +134,10 @@ pub(crate) fn retf(cpu: &mut CPU, add_sp: Option<u16>) -> usize {
   }
 }
 
+use std::io::prelude::*;
+use std::fs::File;
+use simplelog::*;
+
 fn _int(cpu: &mut CPU, index: u8) -> usize {
   flag::generic_push(cpu, cpu.flags.get_bits_word());
   cpu.flags.interrupt = false;  //Interrupts are not allowed while inside of an interrupt.
@@ -141,6 +145,15 @@ fn _int(cpu: &mut CPU, index: u8) -> usize {
   flag::generic_push(cpu, cpu.memory.ip);
   if log_enabled!(Debug) { debug!("Interrupt {:X}", index); }
   cpu.print_registers();
+/*  if index == 0x13 {
+  CombinedLogger::init(vec![
+      TermLogger::new(LevelFilter::Debug, Config::default(), TerminalMode::Mixed, ColorChoice::Auto),
+      WriteLogger::new(LevelFilter::Trace, Config::default(), File::create("trace.log").unwrap()),
+  ]).unwrap();*/
+  /*  for a in 0xB0000..0xC0000 {
+      println!("{}", cpu.memory.ram[a]);
+    }*/
+  //}
   cpu.memory.ip = cpu.memory.get_word_at_addr(index as usize * 4);
   cpu.memory.cs = cpu.memory.get_word_at_addr(index as usize * 4 + 2);
   72

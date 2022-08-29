@@ -14,6 +14,8 @@ type PPI = chips::ppi::PPI;
 type Graphics = chips::graphics::Graphics;
 type MemoryController = chips::dma::DMA;
 type PIC = chips::pic::PIC;
+type FixedDisk = chips::fixed_disk::FixedDisk;
+
 
 use simplelog::*;
 
@@ -34,25 +36,32 @@ fn main() {
   let mut bios_rom = Vec::new();
   f.read_to_end(&mut bios_rom).unwrap();
   
-//  f = File::open("roms/ibm-mfm-1985-10-28.rom")?;
-//  let mut video_rom = Vec::new();
-//  f.read_to_end(&mut video_rom)?;
   let video_rom = Vec::new();
+  /*
+  f = File::open("roms/ibm-ega-1984-09-13.rom").unwrap();
+  let mut video_rom = Vec::new();
+  f.read_to_end(&mut video_rom).unwrap();
+  */
+  f = File::open("roms/ibm-mfm-1985-10-28.rom").unwrap();
+  let mut disk_rom = Vec::new();
+  f.read_to_end(&mut disk_rom).unwrap();
   
   let board = actor_new!(stakker, Board, ret_nop!());
-  let cpu = actor!(stakker, CPU::init(board.clone(), bios_rom, video_rom), ret_nop!());
+  let cpu = actor!(stakker, CPU::init(board.clone(), bios_rom, video_rom, disk_rom), ret_nop!());
   let timer = actor!(stakker, Timer::init(board.clone()), ret_nop!());
   let ppi = actor!(stakker, PPI::init(), ret_nop!());
   let graphics = actor!(stakker, Graphics::init(), ret_nop!());
   let memory_controller = actor!(stakker, MemoryController::init(), ret_nop!());
   let pic = actor!(stakker, PIC::init(board.clone()), ret_nop!());
+  let fixed_disk = actor!(stakker, FixedDisk::init(board.clone()), ret_nop!());
   call!([board], Board::init(
     cpu.clone(),
     timer.clone(),
     ppi.clone(),
     graphics.clone(),
     memory_controller.clone(),
-    pic.clone()
+    pic.clone(),
+    fixed_disk.clone()
   ));
   
   call!([cpu], single_run());
