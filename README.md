@@ -5,11 +5,11 @@
 * Intel 8088 - CPU
 * Intel 8259 - Programmable Interrupt Controller (PIC)
 * Intel 8253 - Programmable Interval Timer (PIT)
+* Intel 8255 - Peripheral  Programmable Peripheral Interface (PPI)
 
 ## Partially emulated chips
 
 * Intel 8237 / AMD 1980 - Direct Memory Access (DMA)
-* Intel 8255 - Peripheral  Programmable Peripheral Interface (PPI)
 * Motorola 6845 - CRT Controller
 * IBM XT Hard Disk Controller
 
@@ -37,8 +37,6 @@ I also intend this project to be used as a reference. The chip functionality sho
 
 ## Latest Progress
 
-### 2022-08-29
+After switching to an Actor messaging model, the BIOS now gets through timing the PIT successfully. It consistently outputs "064 KB OK" into the teletype output. PPI is being read successfully.
 
-After switching to an Actor messaging model, the BIOS now gets through timing the PIT successfully. It consistently outputs "064 KB OK" into the teletype output.
-
-Next steps: Expand on the PPI. Get it to signal to the BIOS that a floppy drive exists. Figure out how to make the BIOS know that more than 64 KB of memory is available... See what other fun dip switches the PPI has to offer.
+Next steps: Work on the Monochrome text video card.

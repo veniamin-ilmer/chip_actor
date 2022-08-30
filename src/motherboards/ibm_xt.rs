@@ -2,6 +2,24 @@ use stakker::*;
 
 use log::debug;
 
+#[allow(dead_code)]
+#[derive(Debug)]
+enum BoardRam {
+  K64, K128, K192, K256,
+}
+
+#[allow(dead_code)]
+#[derive(Debug)]
+enum Display {
+  None, Color40x25, Color80x25, Monochrome80x25,
+}
+
+#[allow(dead_code)]
+#[derive(Debug)]
+enum Floppies {
+  N1, N2, N3, N4,
+}
+
 pub(crate) struct IBM_XT {
   cpu: Actor<crate::CPU>,
   pit: Actor<crate::Timer>,
@@ -9,7 +27,17 @@ pub(crate) struct IBM_XT {
   graphics: Actor<crate::Graphics>,
   dma: Actor<crate::MemoryController>,
   pic: Actor<crate::PIC>,
-  fixed_disk: Actor<crate::FixedDisk>
+  fixed_disk: Actor<crate::FixedDisk>,
+  
+  enable_nmi: bool,
+  enable_speaker: bool,
+  enable_keyboard: bool,
+  
+  dip_long_post: bool,
+  dip_coprocessor_installed: bool,
+  dip_board_ram: BoardRam,
+  dip_display: Display,
+  dip_floppies: Floppies,
 }
 
 impl IBM_XT {
@@ -22,6 +50,7 @@ impl IBM_XT {
       pic: Actor<crate::PIC>,
       fixed_disk: Actor<crate::FixedDisk>
     ) -> Option<Self> {
+      
     Some(Self {
       cpu,
       pit,
@@ -30,8 +59,75 @@ impl IBM_XT {
       dma,
       pic,
       fixed_disk,
+      
+      enable_nmi: false,
+      enable_speaker: false,
+      enable_keyboard: false,
+      dip_long_post: false,
+      dip_coprocessor_installed: true,
+      dip_board_ram: BoardRam::K256,
+      dip_display: Display::Monochrome80x25,
+      dip_floppies: Floppies::N1,
     })
   }
+  
+  fn set_nmi(&mut self, value: u8) {
+    self.enable_nmi = matches!(value & 0b1000_0000, 0b1000_0000);
+    if self.enable_nmi { debug!("NMI Enabled"); } else { debug!("NMI Disabled"); }
+  }
+
+  //Keyboard input / diagnostic output
+  pub(crate) fn ppi_port_a(&mut self, _: CX![], _: u8) {
+  }
+  
+  pub(crate) fn ppi_port_b(&mut self, _: CX![], value: u8) {
+    let speaker_timer = matches!(value & 0b1, 0b1);
+    let speaker = matches!(value & 0b10, 0b10);
+    self.enable_speaker = speaker_timer & speaker;
+    self.enable_keyboard = matches!(value & 0b100_0000, 0b100_0000);
+    
+    let mut port_c_val = 0;
+    if speaker_timer { port_c_val |= 0b10_0000 }
+    
+    if matches!(value & 0b100, 0b100) { //NOTE - In XT this is 0b100. In PC this is 0b1000.
+      //High switch
+      port_c_val |= match self.dip_display {
+        Display::None => 0,
+        Display::Color40x25 => 1,
+        Display::Color80x25 => 2,
+        Display::Monochrome80x25 => 3,
+      };
+      port_c_val |= match self.dip_floppies {
+        Floppies::N1 => 0,
+        Floppies::N2 => 1,
+        Floppies::N3 => 2,
+        Floppies::N4 => 3,
+      } << 2;
+      debug!("Display: {:?}, Floppies: {:?}", self.dip_display, self.dip_floppies);
+    } else {
+      //Low switch
+      if self.dip_long_post { port_c_val |= 0b1 }
+      if self.dip_coprocessor_installed { port_c_val |= 0b10 }
+      port_c_val |= match self.dip_board_ram {
+        BoardRam::K64 => 0,
+        BoardRam::K128 => 1,
+        BoardRam::K192 => 2,
+        BoardRam::K256 => 3,
+      } << 2;
+      debug!("Long Post: {}, Coprocessor Installed: {}, On System Ram: {:?}", self.dip_long_post, self.dip_coprocessor_installed, self.dip_board_ram);
+    }
+    call!([self.ppi], write_port_c(port_c_val));
+    
+    if matches!(value & 0b1000_0000, 0b1000_0000) { //Clear Keyboard Data
+      call!([self.ppi], write_port_a(0));
+    }
+    
+    debug!("Speaker Enabled: {}, Keyboard Enabled: {}", self.enable_speaker, self.enable_keyboard);
+  }
+  
+  pub(crate) fn ppi_port_c(&mut self, _: CX![], _: u8) {
+  }
+
   
   pub(crate) fn timer_interrupt(&self, _: CX![], select_counter: u8) {
     if select_counter == 0 {  //Only IRQ 0 is able to signal the PIC.
@@ -47,7 +143,7 @@ impl IBM_XT {
     call!([self.cpu], interrupt(int_index));
   }
   
-  pub(crate) fn out_byte(&self, _: CX![], port: u16, value: u8) {
+  pub(crate) fn out_byte(&mut self, _: CX![], port: u16, value: u8) {
     match port {
       0x00 => call!([self.dma], set_address(0, value)),
       0x01 => call!([self.dma], set_count(0, value)),
@@ -72,9 +168,10 @@ impl IBM_XT {
       0x43 => call!([self.pit], set_control_word(value)),
       0x60 => call!([self.ppi], write_port_a(value)),
       0x61 => call!([self.ppi], write_port_b(value)),
+      0x62 => call!([self.ppi], write_port_c(value)),
       0x63 => call!([self.ppi], set_configuration(value)),
       0x83 => debug!("083 - High order 4 bits of DMA channel 1 address {:X}", value),
-      0xA0 => call!([self.ppi], set_nmi(value)),
+      0xA0 => self.set_nmi(value),
       0x210 => debug!("OUT Expansion Card Port - {:X}", value),
       0x320 => call!([self.fixed_disk], send_command(value)),
       0x321 => call!([self.fixed_disk], reset(value)),

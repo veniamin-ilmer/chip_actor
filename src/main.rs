@@ -49,7 +49,7 @@ fn main() {
   let board = actor_new!(stakker, Board, ret_nop!());
   let cpu = actor!(stakker, CPU::init(board.clone(), bios_rom, video_rom, disk_rom), ret_nop!());
   let timer = actor!(stakker, Timer::init(board.clone()), ret_nop!());
-  let ppi = actor!(stakker, PPI::init(), ret_nop!());
+  let ppi = actor!(stakker, PPI::init(board.clone()), ret_nop!());
   let graphics = actor!(stakker, Graphics::init(), ret_nop!());
   let memory_controller = actor!(stakker, MemoryController::init(), ret_nop!());
   let pic = actor!(stakker, PIC::init(board.clone()), ret_nop!());
