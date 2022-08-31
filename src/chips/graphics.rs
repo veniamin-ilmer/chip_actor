@@ -24,6 +24,7 @@ pub(crate) struct BWOptions {
   text_size: TextSize,
   enabled: bool,
   blink: bool,
+  vertical_sync: bool,
 }
 
 #[derive(Debug, Default)]
@@ -83,10 +84,39 @@ impl Graphics {
     Some(Default::default())
   }
 
-  pub(crate) fn set_mode_bw(&mut self, _:CX![], register: u8) {
+  fn vertical_sync_start(&mut self, cx:CX![]) {
+    if self.bw_options.enabled {
+      self.bw_options.vertical_sync = true;
+      let duration = std::time::Duration::from_micros(1_600); //50Hz is 20 ms. 8% of 20 ms is 1.6 ms = 1,600 micros.
+      let instant = cx.now() + duration;
+      at!(instant, [cx], vertical_sync_end());
+    }
+  }
+
+  fn vertical_sync_end(&mut self, cx:CX![]) {
+    if self.bw_options.enabled {
+      self.bw_options.vertical_sync = false;
+      let duration = std::time::Duration::from_micros(18_400); //50Hz is 20 ms. 92% of 20 ms is 18.4 ms = 18,400 micros.
+      let instant = cx.now() + duration;
+      at!(instant, [cx], vertical_sync_start());
+    }
+  }
+
+  pub(crate) fn get_status(&self, _:CX![], ret: Ret<u8>) {
+    let mut result = 0;
+    if self.bw_options.vertical_sync { result |= 0b1; }
+    if self.bw_options.vertical_sync { result |= 0b1000; }
+    debug!("Vertical Sync: {}", self.bw_options.vertical_sync);
+    ret!([ret], result);
+  }
+
+  pub(crate) fn set_mode_bw(&mut self, cx:CX![], register: u8) {
     self.bw_options.text_size = if matches!(register & 0b1, 0b1) { TextSize::D80x25 } else { TextSize::D40x25};
     self.bw_options.enabled = matches!(register & 0b1000, 0b1000);
     self.bw_options.blink = matches!(register & 0b10_0000, 0b10_0000);
+    if self.bw_options.enabled {
+      call!([cx], vertical_sync_start());
+    }
     debug!("{:?}", self.bw_options);
   }
   

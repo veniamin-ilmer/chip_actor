@@ -42,10 +42,14 @@ fn main() {
   let mut video_rom = Vec::new();
   f.read_to_end(&mut video_rom).unwrap();
   */
+  /*
   f = File::open("roms/ibm-mfm-1985-10-28.rom").unwrap();
   let mut disk_rom = Vec::new();
   f.read_to_end(&mut disk_rom).unwrap();
-  
+  */
+  let disk_rom = Vec::new();
+
+
   let board = actor_new!(stakker, Board, ret_nop!());
   let cpu = actor!(stakker, CPU::init(board.clone(), bios_rom, video_rom, disk_rom), ret_nop!());
   let timer = actor!(stakker, Timer::init(board.clone()), ret_nop!());

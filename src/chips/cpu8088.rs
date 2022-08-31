@@ -62,7 +62,9 @@ impl CPU {
     let cycles = instructions::lookup::run_next_instruction(self, cx.this());
     let duration = std::time::Duration::from_nanos(cycles as u64 * 210); //4.77 Mhz = 210 nanosecond delay.
     let instant = cx.now() + duration;
-    //self.print_registers();
+    if self.logging {
+      self.print_registers();
+    }
     at!(instant, [cx], single_run());
   }
 

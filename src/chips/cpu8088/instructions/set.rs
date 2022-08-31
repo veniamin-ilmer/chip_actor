@@ -98,6 +98,16 @@ pub(crate) fn in_al_word(cpu: &mut CPU, cpu_actor: &Actor<CPU>) -> usize {
   let port_val = cpu.regs.get_word(&register::Word::DX);
   let ret = ret_some_to!([cpu_actor], set_al() as (u8));
   call!([cpu.board], in_byte(port_val, ret));
+  /*
+  if !cpu.logging && port_val == 0x3BA {
+    CombinedLogger::init(vec![
+        TermLogger::new(LevelFilter::Debug, Config::default(), TerminalMode::Mixed, ColorChoice::Auto),
+        WriteLogger::new(LevelFilter::Trace, Config::default(), File::create("trace.log").unwrap()),
+    ]).unwrap();
+    cpu.logging = true;
+  }
+  */
+  
   12
 }
 
@@ -141,16 +151,6 @@ pub(crate) fn out_al_word(cpu: &mut CPU) -> usize {
   let port_val = cpu.regs.get_word(&register::Word::DX);
   let value = cpu.regs.get_byte(&register::Byte::AL);
   call!([cpu.board], out_byte(port_val, value));
-
-/*
-  if !cpu.logging && port_val == 0x321 {
-    
-    CombinedLogger::init(vec![
-        TermLogger::new(LevelFilter::Debug, Config::default(), TerminalMode::Mixed, ColorChoice::Auto),
-        WriteLogger::new(LevelFilter::Trace, Config::default(), File::create("trace.log").unwrap()),
-    ]).unwrap();
-    cpu.logging = true;
-  }*/
 
   12
 }

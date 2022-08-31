@@ -56,7 +56,17 @@ impl Flags {
     result
   }
 
-  pub(crate) fn shr_ror_rcr_byte(&mut self, set_val: u8, get_val: u8) -> u8 {
+  pub(crate) fn shr_byte(&mut self, set_val: u8, get_val: u8) -> u8 {
+    let result = self.ror_rcr_byte(set_val, get_val);
+    self.parity_zero_sign_byte(result);
+    result
+  }
+  pub(crate) fn shr_word(&mut self, set_val: u16, get_val: u8) -> u16 {
+    let result = self.ror_rcr_word(set_val, get_val);
+    self.parity_zero_sign_word(result);
+    result
+  }
+  pub(crate) fn ror_rcr_byte(&mut self, set_val: u8, get_val: u8) -> u8 {
     if get_val == 0 {
       return set_val;
     }
@@ -71,7 +81,7 @@ impl Flags {
     self.overflow = prev_sign != new_sign;
     result
   }
-  pub(crate) fn shr_ror_rcr_word(&mut self, set_val: u16, get_val: u8) -> u16 {
+  pub(crate) fn ror_rcr_word(&mut self, set_val: u16, get_val: u8) -> u16 {
     if get_val == 0 {
       return set_val;
     }
@@ -87,7 +97,18 @@ impl Flags {
     result
   }
   
-  pub(crate) fn shl_rol_rcl_byte(&mut self, set_val: u8, get_val: u8) -> u8 {
+  pub(crate) fn shl_byte(&mut self, set_val: u8, get_val: u8) -> u8 {
+    let result = self.rol_rcl_byte(set_val, get_val);
+    self.parity_zero_sign_byte(result);
+    result
+  }
+  pub(crate) fn shl_word(&mut self, set_val: u16, get_val: u8) -> u16 {
+    let result = self.rol_rcl_word(set_val, get_val);
+    self.parity_zero_sign_word(result);
+    result
+  }
+
+  pub(crate) fn rol_rcl_byte(&mut self, set_val: u8, get_val: u8) -> u8 {
     if get_val == 0 {
       return set_val;
     }
@@ -102,7 +123,7 @@ impl Flags {
     self.overflow = prev_sign != new_sign;
     result
   }
-  pub(crate) fn shl_rol_rcl_word(&mut self, set_val: u16, get_val: u8) -> u16 {
+  pub(crate) fn rol_rcl_word(&mut self, set_val: u16, get_val: u8) -> u16 {
     if get_val == 0 {
       return set_val;
     }

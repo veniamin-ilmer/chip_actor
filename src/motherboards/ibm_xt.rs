@@ -217,6 +217,7 @@ impl IBM_XT {
       0x210 => {debug!("IN Expansion Card Port"); ret!([ret], 0);},
       0x320 => call!([self.fixed_disk], read_status(ret)),
       0x321 => call!([self.fixed_disk], status_register(ret)),
+      0x3BA => call!([self.graphics], get_status(ret)),
       _ => panic!("In port {:X}", port),
     }
   }
