@@ -37,6 +37,6 @@ I also intend this project to be used as a reference. The chip functionality sho
 
 ## Latest Progress
 
-After switching to an Actor messaging model, the BIOS now gets through timing the PIT successfully. It consistently outputs "064 KB OK" into the teletype output. PPI is being read successfully.
+After switching to an Actor messaging model, the BIOS now gets through timing the PIT successfully. It consistently outputs "064 KB OK" into the teletype output. PPI is being read successfully. Got through BIOS video sync test.
 
-Next steps: Work on the Monochrome text video card.
+Next steps: Work on Floppy disk controller.
